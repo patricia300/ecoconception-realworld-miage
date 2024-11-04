@@ -1,9 +1,9 @@
 Inscrivez ici le nom de votre binôme 
 
 Propriétaire repo git :
-- Nom : 
-- Prénom :
+- Nom : Rasoanambinina
+- Prénoms : Leonie Patricia
 
 Binome :
-- Nom :
-- Prénom :
+- Nom : Razafiarion
+- Prénoms : Herisetra Fanambinanirina Tafitasoa
