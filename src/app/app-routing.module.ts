@@ -76,7 +76,7 @@ const routes: Routes = [
           import("./features/editor/editor.component").then(
             (m) => m.EditorComponent
           ),
-        canActivate: [() => inject(UserService).isAuthenticated],
+       // canActivate: [() => inject(UserService).isAuthenticated],
       },
       {
         path: ":slug",
@@ -84,7 +84,7 @@ const routes: Routes = [
           import("./features/editor/editor.component").then(
             (m) => m.EditorComponent
           ),
-        canActivate: [() => inject(UserService).isAuthenticated],
+       // canActivate: [() => inject(UserService).isAuthenticated],
       },
     ],
   },
