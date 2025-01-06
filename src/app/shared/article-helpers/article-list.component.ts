@@ -51,10 +51,10 @@ export class ArticleListComponent implements OnDestroy {
     this.results = [];
 
     // Create limit and offset filter (if necessary)
-    if (this.limit) {
-      this.query.filters.limit = this.limit;
-      this.query.filters.offset = this.limit * (this.currentPage - 1);
-    }
+    //if (this.limit) {
+      //this.query.filters.limit = this.limit;
+      //this.query.filters.offset = this.limit * (this.currentPage - 1);
+   // }
 
     this.articlesService
       .query(this.query)
