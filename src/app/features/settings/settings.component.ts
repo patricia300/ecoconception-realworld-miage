@@ -65,17 +65,26 @@ export class SettingsComponent implements OnInit, OnDestroy {
 
   submitForm() {
     this.isSubmitting = true;
-
-    this.userService
-      .update(this.settingsForm.value)
-      .pipe(takeUntil(this.destroy$))
-      .subscribe({
-        next: ({ user }) =>
-          void this.router.navigate(["/profile/", user.username]),
-        error: (err) => {
-          this.errors = err;
-          this.isSubmitting = false;
-        },
-      });
+    console.log('update in process ... ')
+    this.userService.update({bio: this.settingsForm.value.bio}).subscribe({
+      next: () => {
+        console.log('bio updated');
+        this.userService.update({bio: this.settingsForm.value.image}).subscribe({
+          next: () => {
+            console.log('image updated');
+            this.userService.update({bio: this.settingsForm.value.username}).subscribe({
+              next: ({ user }) => {
+                console.log('username updated');
+                void this.router.navigate(["/profile/", user.username]);
+              },
+              error: (err) => {
+                this.errors = err;
+                this.isSubmitting = false;
+              },
+            })
+          }
+        })
+      }
+    })
   }
 }
