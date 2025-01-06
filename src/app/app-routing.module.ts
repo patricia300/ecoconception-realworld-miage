@@ -8,6 +8,14 @@ const routes: Routes = [
   {
     path: "",
     loadComponent: () =>
+      import("./features/settings/settings.component").then(
+        (m) => m.SettingsComponent
+      ),
+    canActivate: [() => inject(UserService).isAuthenticated],
+  },
+  {
+    path: "home",
+    loadComponent: () =>
       import("./features/home/home.component").then((m) => m.HomeComponent),
   },
   {
