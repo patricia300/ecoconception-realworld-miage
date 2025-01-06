@@ -62,6 +62,23 @@ export class EditorComponent implements OnInit, OnDestroy {
           }
         });
     }
+
+
+    const btn = document.getElementById('publish');
+
+    console.log('btn', btn);
+
+    btn?.addEventListener('mouseenter', () => {
+      btn.style.background = 'blue';
+      btn.style.fontWeight = 'bold';
+      btn.style.color = 'red';
+    });
+
+    btn?.addEventListener('mouseleave', () => {
+      btn.style.background = 'rgb(116,182,102)';
+      btn.style.fontWeight = 'normal';
+      btn.style.color = 'white';
+    });
   }
 
   ngOnDestroy() {
