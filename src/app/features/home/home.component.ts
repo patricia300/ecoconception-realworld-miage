@@ -26,6 +26,7 @@ import { ShowAuthedDirective } from "../../shared/show-authed.directive";
 })
 export class HomeComponent implements OnInit, OnDestroy {
   isAuthenticated = false;
+  temp = 0;
   listConfig: ArticleListConfig = {
     type: "all",
     filters: {},
@@ -56,6 +57,19 @@ export class HomeComponent implements OnInit, OnDestroy {
       .subscribe(
         (isAuthenticated: boolean) => (this.isAuthenticated = isAuthenticated)
       );
+
+      const element: any = document.getElementById('repaint');
+      console.log('element', element);
+
+      setInterval(() => {
+        if(this.temp == 0) {
+          element.style.background = 'red';
+          this.temp = 1;
+        } else {
+          element.style.background = 'white';
+          this.temp = 0;
+        }
+      }, 1000);
   }
 
   ngOnDestroy(): void {
